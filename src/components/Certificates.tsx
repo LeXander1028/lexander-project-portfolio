@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Award } from "lucide-react";
 
 const certificates = [
@@ -29,6 +29,24 @@ const certificates = [
 const Certificates = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [titleText, setTitleText] = useState("");
+  const fullTitle = "Certificates & Achievements";
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index <= fullTitle.length) {
+        setTitleText(fullTitle.slice(0, index));
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 80);
+
+    return () => clearInterval(interval);
+  }, [isInView]);
 
   return (
     <section id="certificates" className="py-24 bg-deep-emerald" ref={ref}>
@@ -37,9 +55,10 @@ const Certificates = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl font-bold mb-12 text-antique-sage"
+          className="text-4xl md:text-5xl font-bold mb-12 text-antique-sage text-shadow-soft"
         >
-          Certificates & Achievements
+          {titleText}
+          <span className="inline-block w-0.5 h-8 bg-antique-sage ml-1 animate-pulse" />
         </motion.h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -56,8 +75,8 @@ const Certificates = () => {
               <h3 className="text-lg font-bold text-antique-sage mb-2 group-hover:text-white transition-colors">
                 {cert.title}
               </h3>
-              <p className="text-sm text-botanical-noir mb-2">{cert.subtitle}</p>
-              <p className="text-xs text-regal-moss">{cert.org}</p>
+              <p className="text-sm text-antique-sage mb-2">{cert.subtitle}</p>
+              <p className="text-xs text-antique-sage">{cert.org}</p>
             </motion.div>
           ))}
         </div>

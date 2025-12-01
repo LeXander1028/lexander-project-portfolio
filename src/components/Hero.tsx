@@ -48,7 +48,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 2 }}
           className="text-xl md:text-2xl lg:text-3xl text-antique-sage"
         >
-          BSIT 4th Year @ CIT-U | Software Developer
+          BSIT 4th Year @ CIT-U | Software and Website Developer
         </motion.h3>
       </div>
       

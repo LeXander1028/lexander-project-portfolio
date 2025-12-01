@@ -27,7 +27,7 @@ const Footer = () => {
             </span>
           </div>
           
-          <div className="text-sm text-botanical-noir">
+          <div className="text-sm text-antique-sage">
             © 2025 Justin Alexander Labajos. All rights reserved.
           </div>
         </motion.div>

@@ -111,3 +111,9 @@ All colors MUST be HSL.
     @apply font-zen;
   }
 }
+
+@layer utilities {
+  .text-shadow-soft {
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  }
+}

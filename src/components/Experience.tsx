@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Briefcase } from "lucide-react";
 
 const experiences = [
@@ -29,6 +29,24 @@ const experiences = [
 const Experience = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [titleText, setTitleText] = useState("");
+  const fullTitle = "Work Experience";
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index <= fullTitle.length) {
+        setTitleText(fullTitle.slice(0, index));
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 80);
+
+    return () => clearInterval(interval);
+  }, [isInView]);
 
   return (
     <section id="experience" className="py-24 bg-velvet-forest" ref={ref}>
@@ -37,9 +55,10 @@ const Experience = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl font-bold mb-12 text-antique-sage"
+          className="text-4xl md:text-5xl font-bold mb-12 text-antique-sage text-shadow-soft"
         >
-          Work Experience
+          {titleText}
+          <span className="inline-block w-0.5 h-8 bg-antique-sage ml-1 animate-pulse" />
         </motion.h2>
         
         <div className="max-w-4xl mx-auto space-y-12">
@@ -58,7 +77,7 @@ const Experience = () => {
                   <Briefcase className="w-6 h-6 text-antique-sage flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="text-2xl font-bold text-antique-sage mb-1">{exp.role}</h3>
-                    <p className="text-sm text-botanical-noir">{exp.period}</p>
+                    <p className="text-sm text-antique-sage">{exp.period}</p>
                   </div>
                 </div>
                 

@@ -1,10 +1,28 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [titleText, setTitleText] = useState("");
+  const fullTitle = "About Me";
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index <= fullTitle.length) {
+        setTitleText(fullTitle.slice(0, index));
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 80);
+
+    return () => clearInterval(interval);
+  }, [isInView]);
 
   return (
     <section id="about" className="py-24 bg-velvet-forest" ref={ref}>
@@ -15,14 +33,17 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-antique-sage">
-            About Me
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-antique-sage text-shadow-soft">
+            {titleText}
+            <span className="inline-block w-0.5 h-8 bg-antique-sage ml-1 animate-pulse" />
           </h2>
           
           <div className="space-y-6 text-lg text-foreground/90 leading-relaxed">
             <p>
-              I am a detail-oriented <span className="text-antique-sage font-semibold">Software Developer</span> specializing in 
-              Frontend Development. I am a listener and a good team player with a passion for solving complex problems.
+              I could say that I am a <span className="text-antique-sage font-semibold">Software Developer</span> specializing in 
+              Frontend Development since most of my works in college are in creating faces of websites and apps with a little bit of 
+              backend development. I am a listener and a good team player with a passion for building and assisting software 
+              and websites alike.
             </p>
             
             <p>

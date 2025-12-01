@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ExternalLink } from "lucide-react";
 
 const projects = [
@@ -39,6 +39,24 @@ const projects = [
 const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [titleText, setTitleText] = useState("");
+  const fullTitle = "Featured Projects";
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index <= fullTitle.length) {
+        setTitleText(fullTitle.slice(0, index));
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 80);
+
+    return () => clearInterval(interval);
+  }, [isInView]);
 
   return (
     <section id="projects" className="py-24 bg-deep-emerald" ref={ref}>
@@ -47,9 +65,10 @@ const Projects = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl font-bold mb-12 text-antique-sage"
+          className="text-4xl md:text-5xl font-bold mb-12 text-antique-sage text-shadow-soft"
         >
-          Featured Projects
+          {titleText}
+          <span className="inline-block w-0.5 h-8 bg-antique-sage ml-1 animate-pulse" />
         </motion.h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -67,7 +86,7 @@ const Projects = () => {
                   <h3 className="text-2xl font-bold text-antique-sage mb-1 group-hover:text-white transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-botanical-noir">{project.subtitle}</p>
+                  <p className="text-sm text-antique-sage">{project.subtitle}</p>
                 </div>
                 <ExternalLink className="w-5 h-5 text-regal-moss group-hover:text-antique-sage transition-colors" />
               </div>
