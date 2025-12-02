@@ -1,73 +1,83 @@
-# Welcome to your Lovable project
+# Portfolio of Justin Labajos
 
-## Project info
+Welcome to the personal portfolio repository of **Justin Alexander Labajos**, a BSIT Senior at CIT-U specializing in Frontend Development. This project showcases my work, skills, and experience, wrapped in a unique botanical-themed design.
 
-**URL**: https://lovable.dev/projects/bf422225-779d-4327-b72c-2a9d6fffbf89
+## 🌿 Project Overview
 
-## How can I edit this code?
+This web application serves as a digital portfolio, highlighting my journey as a developer. It is designed with a focus on aesthetics, user experience, and modern web technologies.
 
-There are several ways of editing your application.
+## 🛠️ Technologies Used
 
-**Use Lovable**
+This project is built using a modern frontend stack:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/bf422225-779d-4327-b72c-2a9d6fffbf89) and start prompting.
+-   **Framework**: [React](https://react.dev/)
+-   **Build Tool**: [Vite](https://vitejs.dev/)
+-   **Language**: [TypeScript](https://www.typescriptlang.org/)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+-   **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+-   **Routing**: [React Router](https://reactrouter.com/)
+-   **State Management/Data Fetching**: [TanStack Query](https://tanstack.com/query/latest)
+-   **Icons**: [Lucide React](https://lucide.dev/)
+-   **Animations**: [Framer Motion](https://www.framer.com/motion/)
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🎨 Styling & Theme
 
-**Use your preferred IDE**
+The design is heavily inspired by nature, utilizing a "Botanical Lumina" theme.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Color Palette
+The application uses a curated selection of greens and earth tones:
+-   **Deep Emerald**: `#013220`
+-   **Velvet Forest**: `#0B3B2E`
+-   **Botanical Noir**: `#1F4838`
+-   **Regal Moss**: `#345F4B`
+-   **Antique Sage**: `#8B9F8E`
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Typography
+-   **Headings**: `Zen Antique Soft` (Serif)
+-   **Body**: `Gowun Dodum` (Sans-serif)
 
-Follow these steps:
+## 🚀 Getting Started
 
+To run this project locally, follow these steps:
+
+### Prerequisites
+-   Node.js & npm installed on your machine.
+
+### Installation
+
+1.  Clone the repository:
+    ```sh
+    git clone <YOUR_GIT_URL>
+    ```
+2.  Navigate to the project directory:
+    ```sh
+    cd botanical-lumina
+    ```
+3.  Install dependencies:
+    ```sh
+    npm install
+    ```
+
+### Development
+
+Start the development server:
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Build
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Build for production:
+```sh
+npm run build
+```
 
-**Use GitHub Codespaces**
+## 👤 Author
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+**Justin Alexander Labajos**
+-   BSIT Senior at CIT-U
+-   Frontend Development Specialist
+-   AWS Cloud Enthusiast
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/bf422225-779d-4327-b72c-2a9d6fffbf89) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+*Built with ❤️ and 🌿*
